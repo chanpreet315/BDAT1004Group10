@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title>My Bootstrap Page</title>
+
+    <title>Example Page</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+	
+	<!-- jQuery and Popper.js -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+	
+	<!-- Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+	<!-- Link Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-1tkw5M5kwMz2i5bcSxl5z5ZCE1sbZQkQoUVeqcOAmCvOwCDhMIJxGKLfWKFjDdeesfTuc0B+/9VH8lrF+0q+yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Link Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-Qas1hQ2J8oM+YJJKCwLyGyL/mVx+ViLrDmF1Gc5BjKX9t4A4CFYfOyxr+OyGBQZXtVC5S5z5HN0MjKbAurI8Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data2 = google.visualization.arrayToDataTable({{ data2|tojson|safe }});
+
+        var options = {
+          title: 'Exploring the Relationship Between Year of Release and Popularity',
+          hAxis: {
+            title: 'Release Year', minValue: 1920, maxValue: 2024
+          },
+          vAxis: {
+            title: 'Number of Movies', minValue: 8, maxValue: 10 
+          },
+          legend: 'none',
+        };
+
+  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+  chart.draw(data2, options);
+}
+
+    </script>
+      <style>
+        body {
+            
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-size: contain;
+            text-align: center;
+            background-color:floralwhite;
+            
+        }
+    </style>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <li class="nav-item">
+          <a href="./"><img src="https://i.ibb.co/wLB4CQW/images.jpg" alt="images" width="75 height="25" border="0"></a>
+  </li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="directors">Top Directors</a>
+                          </li>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="year">Favorites through the Years</a>
+                  </li>
+        </div>
+      </div>
+    </nav>
+    <style>
+      h2 {
+        color: blue;
+      }
+      </style>
+      
+      <h2><center>Inspire a creative direction by studying which eras have produced the most liked movies!!</center></h2>
+      
+    <div id="chart_div" style="width: 900px; height: 100vh; margin: 0 auto; text-align: center;"></div>
+    <p id="last-updated" style="font-weight: bold;">Data was last updated on {{ last_updated }}</p>
+  </body>
+</html>
